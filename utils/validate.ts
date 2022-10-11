@@ -3,3 +3,7 @@ export function isUrl(url: string) {
     url
   );
 }
+
+export function isAlias(alias: string) {
+  return /^[a-z0-9]+$/gi.test(alias);
+}
