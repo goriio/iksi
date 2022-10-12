@@ -9,12 +9,22 @@ export function LinkShortenerForm() {
   const [alias, setAlias] = useState('');
   const [shortenedLink, setShortenedLink] = useState('');
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   function reset() {
     setLink('');
     setAlias('');
     setShortenedLink('');
     setLoading(false);
+  }
+
+  function copyLink() {
+    window.navigator.clipboard.writeText(shortenedLink);
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -50,13 +60,23 @@ export function LinkShortenerForm() {
     <div className="w-full">
       {shortenedLink ? (
         <div className="flex items-center gap-2">
-          <Input
-            type="text"
-            aria-label="Shortened link"
-            placeholder="Shortened link"
-            readOnly
-            value={shortenedLink}
-          />
+          <div className="relative w-full">
+            <Input
+              type="text"
+              aria-label="Shortened link"
+              placeholder="Shortened link"
+              readOnly
+              value={shortenedLink}
+            />
+            <div className="absolute right-2 top-1/2 -translate-y-1/2">
+              <button
+                onClick={copyLink}
+                className="px-2 py-1 bg-slate-300 text-blue-700 text-xs rounded font-bold uppercase hover:opacity-90 active:opacity-80 transition ease-in-out"
+              >
+                {copied ? 'Copied!' : 'Copy'}
+              </button>
+            </div>
+          </div>
           <Button onClick={reset}>Another</Button>
         </div>
       ) : (
