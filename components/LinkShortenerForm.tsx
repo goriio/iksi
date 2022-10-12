@@ -9,14 +9,12 @@ export function LinkShortenerForm() {
   const [alias, setAlias] = useState('');
   const [shortenedLink, setShortenedLink] = useState('');
   const [loading, setLoading] = useState(false);
-  const [shortened, setShortened] = useState(false);
 
   function reset() {
     setLink('');
     setAlias('');
     setShortenedLink('');
     setLoading(false);
-    setShortened(false);
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -46,12 +44,11 @@ export function LinkShortenerForm() {
     setShortenedLink(`${window.location.hostname}/${data.code}`);
     setAlias('');
     toast.success('Link created.');
-    setShortened(true);
   }
 
   return (
     <div className="w-full">
-      {shortened ? (
+      {shortenedLink ? (
         <div className="flex items-center gap-2">
           <Input
             type="text"
