@@ -4,7 +4,7 @@ import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className="grid place-items-center max-w-lg mx-auto p-4 h-screen">
       <Component {...pageProps} />
       <Toaster
         position="bottom-right"
@@ -15,6 +15,6 @@ export default function App({ Component, pageProps }: AppProps) {
           },
         }}
       />
-    </>
+    </div>
   );
 }
