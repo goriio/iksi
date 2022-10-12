@@ -34,6 +34,7 @@ export function LinkShortenerForm() {
     if (!isUrl(link)) return toast.error('Link is invalid.');
     if (alias && !isAlias(alias)) return toast.error('Alias is invalid.');
 
+    toast('Processing...', { duration: 2000 });
     setLoading(true);
 
     let params: { url: string; alias?: string } = { url: link };
