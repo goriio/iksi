@@ -10,7 +10,7 @@ const app = {
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className="grid place-items-center max-w-lg mx-auto p-4 h-screen">
+    <>
       <Head>
         <title>{app.title}</title>
         <meta name="description" content={app.description} />
@@ -31,6 +31,6 @@ export default function App({ Component, pageProps }: AppProps) {
           },
         }}
       />
-    </div>
+    </>
   );
 }
