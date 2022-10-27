@@ -4,15 +4,17 @@ import Link from 'next/link';
 
 export default function Redirect() {
   return (
-    <p>
-      There is no link with that code.
-      <br />
-      Try to{' '}
-      <Link href="/">
-        <a className="text-blue-500 hover:underline">shorten a link</a>
-      </Link>
-      , instead.
-    </p>
+    <div className="grid place-items-center h-screen">
+      <p>
+        There is no link with that code.
+        <br />
+        Try to{' '}
+        <Link href="/">
+          <a className="text-blue-500 hover:underline">shorten a link</a>
+        </Link>
+        , instead.
+      </p>
+    </div>
   );
 }
 
