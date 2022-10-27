@@ -17,7 +17,7 @@ export default function Docs() {
       <h3>Response</h3>
       <pre>
         {`{
-    "code": "50zGrFpmnt1",
+    "code": "50zGrFpmn",
     "link": "example.of/a/looooooooooooong/link.html"
 }`}
       </pre>
